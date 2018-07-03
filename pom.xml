@@ -19,18 +19,24 @@
 <!-- ======================================================================= -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  
+
   <modelVersion>4.0.0</modelVersion>
+
+
+  <parent>
+    <groupId>com.tripactions</groupId>
+    <artifactId>ta-parent-pom</artifactId>
+    <version>176</version>
+  </parent>
+
   <groupId>org.jasypt</groupId>
   <artifactId>jasypt-hibernate5</artifactId>
   <packaging>jar</packaging>
-  <version>1.9.3-SNAPSHOT</version>
+  <version>1.9.3.0</version>
   <name>JASYPT: Java Simplified Encryption</name>
   <url>http://www.jasypt.org</url>
 
   <description>Java library which enables encryption in java apps with minimum effort.</description>
-
-
 
   <licenses>
     <license>
@@ -44,13 +50,7 @@
     <name>The JASYPT team</name>
     <url>http://www.jasypt.org</url>
   </organization>
-  
-  <scm>
-    <url>scm:svn:http://svn.code.sf.net/p/jasypt/code/trunk/jasypt-hibernate4</url>
-    <connection>scm:svn:https://svn.code.sf.net/p/jasypt/code/trunk/jasypt-hibernate4</connection>
-    <developerConnection>scm:svn:https://svn.code.sf.net/p/jasypt/code/trunk/jasypt-hibernate4</developerConnection>
-  </scm>
-  
+
   <developers>
     <developer>
       <id>dfernandez</id>
@@ -61,19 +61,6 @@
       </roles>
     </developer>
   </developers>
-  
-  <distributionManagement>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
 
   <repositories>
     <repository>
@@ -91,15 +78,14 @@
     </repository>
   </repositories>
 
-
   <build>
 
     <resources>
-    
+
       <resource>
         <directory>src/main/resources</directory>
       </resource>
-    
+
       <resource>
           <directory>.</directory>
           <targetPath>META-INF</targetPath>
@@ -108,9 +94,9 @@
               <include>NOTICE.txt</include>
           </includes>
       </resource>
-      
+
     </resources>
-    
+
     <testResources>
       <testResource>
         <directory>src/test/java</directory>
@@ -125,33 +111,13 @@
         <directory>src/test/resources</directory>
       </testResource>
     </testResources>
-    
+
     <plugins>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.4</source>
-          <target>1.4</target>
-          <encoding>US-ASCII</encoding>
-        </configuration>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.5</version>
-        <configuration>
-          <encoding>US-ASCII</encoding>
-        </configuration>
-      </plugin>
-      
+<!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.7</version>
         <configuration>
           <show>protected</show>
           <noqualifier>java.lang</noqualifier>
@@ -169,11 +135,10 @@
           </execution>
         </executions>
       </plugin>
-      
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -183,32 +148,20 @@
           </execution>
         </executions>
       </plugin>
-      
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.1</version>
-        <configuration>
-          <tagBase>https://svn.code.sf.net/p/jasypt/code/tags/jasypt-hibernate4</tagBase>
-        </configuration>
-      </plugin>
-
-
+ -->
     </plugins>
-    
+
   </build>
 
-
-
   <dependencies>
-    
+
     <dependency>
       <groupId>org.jasypt</groupId>
       <artifactId>jasypt</artifactId>
       <version>1.9.2</version>
       <scope>compile</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
@@ -224,29 +177,29 @@
       <scope>provided</scope>
       <optional>true</optional>
     </dependency>
-    
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-  
+
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>2.1</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
         <groupId>org.hsqldb</groupId>
         <artifactId>hsqldb</artifactId>
         <version>2.2.6</version>
         <scope>test</scope>
     </dependency>
-    
+
   </dependencies>
 
-  
+
 </project>
